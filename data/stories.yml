@@ -1,0 +1,37 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_services
+  # - slot_was_set:
+  #   - intent_tracker: Jobs
+  # - slot_was_set:
+  #   - intent_tracker: Employee 
+  - or:
+    - intent: Job_seeker
+    - intent: Employer
+  - action: action_intent
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye

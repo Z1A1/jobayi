@@ -1,0 +1,52 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - Employer
+  - Job_seeker
+slots:
+  intent_tracker:
+    type: text
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: "How can I assist you today? Please type in your query below."
+  utter_services:
+  - buttons:
+    - payload: /Employer
+      title: Employer
+    - payload: /Job_seeker 
+      title: Jobs
+    text: Here are a few quick links to help you out    
+   
+ 
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+actions:
+- action_intent
+- utter_services
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
