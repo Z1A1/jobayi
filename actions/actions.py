@@ -4,14 +4,7 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-import pprint
-import re
-import time
 
-import html2text
-from textblob import TextBlob
-import requests
-import os
 
 
 class ActionHelloWorld(Action):
