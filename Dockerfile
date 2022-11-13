@@ -16,3 +16,7 @@ RUN pip install --no-cache-dir --upgrade pip
 
 RUN pip install rasa==2.8.17
 
+ADD config.yml config.yml
+ADD domain.yml domain.yml
+ADD credentials.yml credentials.yml
+ADD endpoints.yml endpoints.yml
